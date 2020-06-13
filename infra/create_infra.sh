@@ -26,7 +26,7 @@ echo "This is where the Base EDL Infrastructure is Spun Up"
 
 login 
 create_resource_group $RG_NAME $RG_LOCATION
-create_virtual_network $DEPARTMENT_1
+create_virtual_network $DEPARTMENT_0 $VNET_DEP0
 
 
 #################### End Creation ########################
