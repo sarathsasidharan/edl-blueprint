@@ -10,9 +10,10 @@ echo "This is where networking starts"
 
 create_virtual_network()
 {
-  DEPARTMENT_NAME=$1
-  VNET_RANGE=$2
+  RESOURCE_GRP=$1
+  DEPARTMENT_NAME=$2
+  VNET_RANGE=$3
 
-  echo "VNET FOR $DEPARTMENT_NAME"
-  az network vnet create -g $RG_LOCATION -n $DEPARTMENT_NAME+"_VNET" --address-prefix $VNET_RANGE
+  echo "Creating VNET FOR $DEPARTMENT_NAME"
+  az network vnet create -g $RESOURCE_GRP -n $DEPARTMENT_NAME"_VNET" --address-prefix $VNET_RANGE
 }

@@ -19,9 +19,9 @@ source $RESOURCE_GROUP_PATH
 
 echo "This is where the Base EDL Infrastructure is Spun Up"
 
-login 
+azlogin 
 create_resource_group $RG_NAME $RG_LOCATION
-create_virtual_network $DEPARTMENT_0 $VNET_DEP0
+create_virtual_network $RG_NAME $DEPARTMENT_0 $VNET_DEP0
 #shutdown $RG_NAME
 
 #################### End Creation ########################
