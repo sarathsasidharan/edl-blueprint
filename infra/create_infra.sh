@@ -13,15 +13,16 @@ source $RESOURCE_GROUP_SCRIPT
 
 
 
-#Function to Login to Azure / Can be removed when triggered from AzDevOps
+#Function to Login /Delete / Can be removed when triggered from AzDevOps
 login() {
     echo "Login to Azure"
     az login
 }
 
 shutdown() {
+    MARKED_RESOURCE_GROUP=$1
     echo "Shutting down ETL Infra , decomissioning resources"
-
+    az group delete -n $MARKED_RESOURCE_GROUP
 }
 
 
@@ -32,6 +33,6 @@ echo "This is where the Base EDL Infrastructure is Spun Up"
 login 
 create_resource_group $RG_NAME $RG_LOCATION
 create_virtual_network $DEPARTMENT_0 $VNET_DEP0
-shutdown
+#shutdown $RG_NAME
 
 #################### End Creation ########################
