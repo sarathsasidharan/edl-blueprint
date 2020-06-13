@@ -14,7 +14,7 @@ source $RESOURCE_GROUP_SCRIPT
 
 
 #Function to Login to Azure / Can be removed when triggered from AzDevOps
-startup() {
+login() {
     echo "Login to Azure"
     az login
 }
@@ -24,7 +24,7 @@ startup() {
 
 echo "This is where the Base EDL Infrastructure is Spun Up"
 
-startup 
+login 
 create_resource_group $RG_NAME $RG_LOCATION
 create_virtual_network $DEPARTMENT_1
 
