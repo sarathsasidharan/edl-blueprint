@@ -12,8 +12,10 @@ create_resource_group()
 {
     RES_GROUP_NAME=$1
     RESOURCE_LOCATION=$2
+    
     echo "Create Resource Group $RES_GROUP_NAME in location $RESOURCE_LOCATION"
     az group create -n $RES_GROUP_NAME -l $RESOURCE_LOCATION
+    echo "Cretion of Resource Group $RES_GROUP_NAME in location $RESOURCE_LOCATION succeeded"
 }
     
     
