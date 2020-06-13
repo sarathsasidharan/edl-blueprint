@@ -4,15 +4,15 @@
 #Declare Script Paths
 CONFIG_PATH="config/azure.config"
 LOGIN_TEARDOWN_PATH="login/login.sh"
-NETWORK_SCRIPT="network/create-network.sh"
-RESOURCE_GROUP_SCRIPT="resource-group/create-rg.sh"
+NETWORK_PATH="network/create-network.sh"
+RESOURCE_GROUP_PATH="resource-group/create-rg.sh"
 
 
 #Import Functions needed to create Infra.
 source $CONFIG_PATH
 source $LOGIN_TEARDOWN_PATH
-source $NETWORK_CREATION_SCRIPT
-source $RESOURCE_GROUP_SCRIPT
+source $NETWORK_PATH
+source $RESOURCE_GROUP_PATH
 
 
 #################### Start Creation ########################
