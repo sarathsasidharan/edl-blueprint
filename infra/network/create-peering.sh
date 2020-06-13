@@ -1,18 +1,19 @@
 #!/bin/sh
 # Deploy an Enterprise Data Lake Infra on Azure
 
-CONFIG_PATH="config/azure.config"
 
-#Import Functions needed to create Infra.
-source $CONFIG_PATH
-
-echo "This is where networking starts"
+echo "Network Peering starts here"
 
 create_virtual_network_peering()
 {
-  DEPARTMENT_NAME=$1
-  VNET_RANGE=$2
+  RESOURCE_GRP=$1
+  DEPARTMENT_VNET_NAME="$2_VNET"
+  DEPARTMENT_REMOTE_VNET_NAME="$3_VNET"
 
-  echo "VNET FOR $DEPARTMENT_NAME"
-  az network vnet create -g $RG_LOCATION -n $DEPARTMENT_NAME+"_VNET" --address-prefix $VNET_RANGE
+  echo "VNET Peering FOR $DEPARTMENT_VNET_NAME and $DEPARTMENT_REMOTE_VNET_NAME" 
+  az network vnet peering create -g $RESOURCE_GRP \
+                                 -n $DEPARTMENT_VNET_NAME"_PEERING" \
+                                 --vnet-name $DEPARTMENT_VNET_NAME \
+                                 --remote-vnet $DEPARTMENT_REMOTE_VNET_NAME \
+                                 --allow-vnet-access
 }
