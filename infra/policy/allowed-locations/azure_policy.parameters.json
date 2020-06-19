@@ -1,0 +1,10 @@
+{
+    "listOfAllowedLocations": {
+        "type": "Array",
+        "metadata": {
+            "description": "Allowed Locations To Deploy Data Lake Resources",
+            "displayName": "Allowed Locations"
+        },
+        "value": ["westeurope", "easteurope"]
+    }
+}
