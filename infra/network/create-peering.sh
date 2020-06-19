@@ -7,13 +7,18 @@ echo "Network Peering starts here"
 create_virtual_network_peering()
 {
   RESOURCE_GRP=$1
-  DEPARTMENT_VNET_NAME="$2_VNET"
-  DEPARTMENT_REMOTE_VNET_NAME="$3_VNET"
+  RESOURCE_GRP_REMOTE=$2
+  DEPARTMENT_VNET="$3_vnet"
+  DEPARTMENT_REMOTE_VNET="$4_vnet"
+  DEPARTMENT_REMOTE_VNET_NAME=$(az resource show -g $RESOURCE_GRP_REMOTE --resource-type Microsoft.Network/virtualNetworks -n $DEPARTMENT_REMOTE_VNET --query id -o tsv)
 
-  echo "VNET Peering FOR $DEPARTMENT_VNET_NAME and $DEPARTMENT_REMOTE_VNET_NAME" 
+  echo $DEPARTMENT_REMOTE_VNET
+
+  echo "VNET Peering FOR $DEPARTMENT_VNET and $DEPARTMENT_REMOTE_VNET" 
   az network vnet peering create -g $RESOURCE_GRP \
-                                 -n $DEPARTMENT_VNET_NAME"_PEERING" \
-                                 --vnet-name $DEPARTMENT_VNET_NAME \
+                                 -n $DEPARTMENT_REMOTE_VNET"_peering" \
+                                 --vnet-name $DEPARTMENT_VNET \
                                  --remote-vnet $DEPARTMENT_REMOTE_VNET_NAME \
                                  --allow-vnet-access
 }
+

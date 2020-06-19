@@ -15,5 +15,5 @@ create_virtual_network()
   VNET_RANGE=$3
 
   echo "Creating VNET FOR $DEPARTMENT_NAME"
-  az network vnet create -g $RESOURCE_GRP -n $DEPARTMENT_NAME"_VNET" --address-prefix $VNET_RANGE
+  az network vnet create -g $RESOURCE_GRP -n $DEPARTMENT_NAME"_vnet" --address-prefix $VNET_RANGE
 }
