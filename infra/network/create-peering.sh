@@ -11,8 +11,7 @@ create_virtual_network_peering()
   DEPARTMENT_VNET="$3_vnet"
   DEPARTMENT_REMOTE_VNET="$4_vnet"
   DEPARTMENT_REMOTE_VNET_NAME=$(az resource show -g $RESOURCE_GRP_REMOTE --resource-type Microsoft.Network/virtualNetworks -n $DEPARTMENT_REMOTE_VNET --query id -o tsv)
-
-  echo $DEPARTMENT_REMOTE_VNET
+  
 
   echo "VNET Peering FOR $DEPARTMENT_VNET and $DEPARTMENT_REMOTE_VNET" 
   az network vnet peering create -g $RESOURCE_GRP \
