@@ -41,33 +41,33 @@ echo "This is where the Base EDL Infrastructure is Spun Up"
 
 azlogin 
 
-#create_resource_group $RG_NAME_DEP0 $RG_LOCATION
-#create_resource_group $RG_NAME_DEP1 $RG_LOCATION
-#create_resource_group $RG_NAME_DEP2 $RG_LOCATION
-#create_resource_group $RG_NAME_DEP3 $RG_LOCATION
-#create_resource_group $RG_NAME_DEP4 $RG_LOCATION
-#
-#create_virtual_network $RG_NAME_DEP0 $DEPARTMENT_0 $VNET_DEP0 
-#create_virtual_network $RG_NAME_DEP1 $DEPARTMENT_1 $VNET_DEP1
-#create_virtual_network $RG_NAME_DEP2 $DEPARTMENT_2 $VNET_DEP2
-#create_virtual_network $RG_NAME_DEP3 $DEPARTMENT_3 $VNET_DEP3
-#create_virtual_network $RG_NAME_DEP4 $DEPARTMENT_4 $VNET_DEP4
-#
-#
-#create_virtual_network_peering $RG_NAME_DEP0 $RG_NAME_DEP1 $DEPARTMENT_0 $DEPARTMENT_1
-#create_virtual_network_peering $RG_NAME_DEP0 $RG_NAME_DEP2 $DEPARTMENT_0 $DEPARTMENT_2
-#create_virtual_network_peering $RG_NAME_DEP0 $RG_NAME_DEP3 $DEPARTMENT_0 $DEPARTMENT_3
-#create_virtual_network_peering $RG_NAME_DEP0 $RG_NAME_DEP4 $DEPARTMENT_0 $DEPARTMENT_4
-#
-##Create Custom Policies
-#create_policy $POLICY_VNET $POLICY_VNET_DISPLAY_NAME $POLICY_VNET_DESC 
-#
-##Assign location restriction policy
-#assign_policy $POLICY_REGION_DISP $RG_NAME_DEP0 $POLICY_REGION $POLICY_REGION_PARAM
-#assign_policy $POLICY_REGION_DISP $RG_NAME_DEP1 $POLICY_REGION $POLICY_REGION_PARAM
-#assign_policy $POLICY_REGION_DISP $RG_NAME_DEP2 $POLICY_REGION $POLICY_REGION_PARAM
-#assign_policy $POLICY_REGION_DISP $RG_NAME_DEP3 $POLICY_REGION $POLICY_REGION_PARAM
-#assign_policy $POLICY_REGION_DISP $RG_NAME_DEP4 $POLICY_REGION $POLICY_REGION_PARAM
+create_resource_group $RG_NAME_DEP0 $RG_LOCATION
+create_resource_group $RG_NAME_DEP1 $RG_LOCATION
+create_resource_group $RG_NAME_DEP2 $RG_LOCATION
+create_resource_group $RG_NAME_DEP3 $RG_LOCATION
+create_resource_group $RG_NAME_DEP4 $RG_LOCATION
+
+create_virtual_network $RG_NAME_DEP0 $DEPARTMENT_0 $VNET_DEP0 
+create_virtual_network $RG_NAME_DEP1 $DEPARTMENT_1 $VNET_DEP1
+create_virtual_network $RG_NAME_DEP2 $DEPARTMENT_2 $VNET_DEP2
+create_virtual_network $RG_NAME_DEP3 $DEPARTMENT_3 $VNET_DEP3
+create_virtual_network $RG_NAME_DEP4 $DEPARTMENT_4 $VNET_DEP4
+
+
+create_virtual_network_peering $RG_NAME_DEP0 $RG_NAME_DEP1 $DEPARTMENT_0 $DEPARTMENT_1
+create_virtual_network_peering $RG_NAME_DEP0 $RG_NAME_DEP2 $DEPARTMENT_0 $DEPARTMENT_2
+create_virtual_network_peering $RG_NAME_DEP0 $RG_NAME_DEP3 $DEPARTMENT_0 $DEPARTMENT_3
+create_virtual_network_peering $RG_NAME_DEP0 $RG_NAME_DEP4 $DEPARTMENT_0 $DEPARTMENT_4
+
+#Create Custom Policies
+create_policy $POLICY_VNET $POLICY_VNET_DISPLAY_NAME $POLICY_VNET_DESC 
+
+#Assign location restriction policy
+assign_policy $POLICY_REGION_DISP $RG_NAME_DEP0 $POLICY_REGION $POLICY_REGION_PARAM
+assign_policy $POLICY_REGION_DISP $RG_NAME_DEP1 $POLICY_REGION $POLICY_REGION_PARAM
+assign_policy $POLICY_REGION_DISP $RG_NAME_DEP2 $POLICY_REGION $POLICY_REGION_PARAM
+assign_policy $POLICY_REGION_DISP $RG_NAME_DEP3 $POLICY_REGION $POLICY_REGION_PARAM
+assign_policy $POLICY_REGION_DISP $RG_NAME_DEP4 $POLICY_REGION $POLICY_REGION_PARAM
 
 #Assign vnet restriction on resource groups level
 assign_policy $POLICY_VNET_DISP $RG_NAME_DEP0 $POLICY_VNET $POLICY_VNET0_PARAM
