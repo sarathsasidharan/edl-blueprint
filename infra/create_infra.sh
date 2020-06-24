@@ -15,6 +15,8 @@ POLICY_REGION="audit-location-data-lake"
 POLICY_REGION_ID="e56962a6-4747-49cd-b67b-bf8b01975c4c"
 POLICY_REGION_PARAM="allowed-locations"
 
+#Create Policy Variables
+
 
 #Import Functions needed to create Infra.
 source $CONFIG_PATH
@@ -56,6 +58,9 @@ assign_policy $POLICY_REGION $RG_NAME_DEP1 $POLICY_REGION_ID $POLICY_REGION_PARA
 assign_policy $POLICY_REGION $RG_NAME_DEP2 $POLICY_REGION_ID $POLICY_REGION_PARAM
 assign_policy $POLICY_REGION $RG_NAME_DEP3 $POLICY_REGION_ID $POLICY_REGION_PARAM
 assign_policy $POLICY_REGION $RG_NAME_DEP4 $POLICY_REGION_ID $POLICY_REGION_PARAM
+
+
+create_policy "vm-creation-in-approved-vnet" "Use approved vNet for VM network interfaces" "This policy enforces VM network interfaces to use vNet." "vm-creation-approved-vnet"
 
 #shutdown $RG_NAME
 
