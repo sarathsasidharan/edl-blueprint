@@ -13,10 +13,11 @@ POLICY_PATH="policy/policies.sh"
 #Policy Variables
 POLICY_REGION="audit-location-data-lake"
 POLICY_REGION_ID="e56962a6-4747-49cd-b67b-bf8b01975c4c"
-POLICY_REGION_PARAM="allowed-locations"
 
-#Create Policy Variables
 
+POLICY_VNET="vm-creation-in-approved-vnet"
+POLICY_VNET_DISPLAY_NAME="Use approved vNet for VM network interfaces"
+POLICY_VNET_DESC="This policy enforces VM network interfaces to use vNet."
 
 #Import Functions needed to create Infra.
 source $CONFIG_PATH
@@ -53,14 +54,18 @@ create_virtual_network_peering $RG_NAME_DEP0 $RG_NAME_DEP3 $DEPARTMENT_0 $DEPART
 create_virtual_network_peering $RG_NAME_DEP0 $RG_NAME_DEP4 $DEPARTMENT_0 $DEPARTMENT_4
 
 
-assign_policy $POLICY_REGION $RG_NAME_DEP0 $POLICY_REGION_ID $POLICY_REGION_PARAM
-assign_policy $POLICY_REGION $RG_NAME_DEP1 $POLICY_REGION_ID $POLICY_REGION_PARAM
-assign_policy $POLICY_REGION $RG_NAME_DEP2 $POLICY_REGION_ID $POLICY_REGION_PARAM
-assign_policy $POLICY_REGION $RG_NAME_DEP3 $POLICY_REGION_ID $POLICY_REGION_PARAM
-assign_policy $POLICY_REGION $RG_NAME_DEP4 $POLICY_REGION_ID $POLICY_REGION_PARAM
+create_policy $POLICY_VNET $POLICY_VNET_DISPLAY_NAME $POLICY_VNET_DESC 
 
+#assign location restriction policy
+assign_policy $POLICY_REGION $RG_NAME_DEP0 $POLICY_REGION_ID 
+assign_policy $POLICY_REGION $RG_NAME_DEP1 $POLICY_REGION_ID 
+assign_policy $POLICY_REGION $RG_NAME_DEP2 $POLICY_REGION_ID 
+assign_policy $POLICY_REGION $RG_NAME_DEP3 $POLICY_REGION_ID 
+assign_policy $POLICY_REGION $RG_NAME_DEP4 $POLICY_REGION_ID 
 
-create_policy "vm-creation-in-approved-vnet" "Use approved vNet for VM network interfaces" "This policy enforces VM network interfaces to use vNet." "vm-creation-approved-vnet"
+#assign vnet restriction on resource groups
+assign_policy $POLICY_VNET $RG_NAME_DEP0 $POLICY_VNET 
+
 
 #shutdown $RG_NAME
 
