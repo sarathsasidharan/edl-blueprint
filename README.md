@@ -1,2 +1,3 @@
 # edl-blueprint
-Template For Enterprise Data Lake
+
+This is a template which showcases a sample enterprise data lake creation.
