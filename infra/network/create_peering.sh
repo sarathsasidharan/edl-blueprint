@@ -8,8 +8,8 @@ create_virtual_network_peering()
 {
   RESOURCE_GRP=$1
   RESOURCE_GRP_REMOTE=$2
-  DEPARTMENT_VNET="$3_vnet"
-  DEPARTMENT_REMOTE_VNET="$4_vnet"
+  DEPARTMENT_VNET="vnet-$3"
+  DEPARTMENT_REMOTE_VNET="vnet-$4"
   DEPARTMENT_VNET_NAME=$(az resource show -g $RESOURCE_GRP --resource-type Microsoft.Network/virtualNetworks -n $DEPARTMENT_VNET --query id -o tsv)
   DEPARTMENT_REMOTE_VNET_NAME=$(az resource show -g $RESOURCE_GRP_REMOTE --resource-type Microsoft.Network/virtualNetworks -n $DEPARTMENT_REMOTE_VNET --query id -o tsv)
 

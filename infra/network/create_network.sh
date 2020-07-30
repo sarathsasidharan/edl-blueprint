@@ -35,5 +35,5 @@ create_nsg()
   RESOURCE_GRP=$1
   NSG=$2
   LOCATION=$3
-  az network nsg create --name $nsg --resource-group $resource --location "$location"
+  az network nsg create --name $NSG --resource-group $RESOURCE_GRP --location "$LOCATION"
 }
