@@ -1,4 +1,4 @@
-# edl-blueprint
+# Enterprise Data Lake Blueprint
 
 This project helps to setup an modern data warehousing architecture project on Azure. 
 
