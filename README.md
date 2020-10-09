@@ -4,4 +4,4 @@ This project helps to setup an modern data warehousing architecture project on A
 
 The following diagram summarizes the future state or end state of this project.
 
-![alt text](https://github.com/sarathsasidharan/edl-blueprint/blob/master/MDW_Arch.pdf)
+![Alt text](https://github.com/sarathsasidharan/edl-blueprint/blob/master/MDW_Arch.pdf?raw=true "Title")
