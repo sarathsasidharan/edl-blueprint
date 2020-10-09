@@ -1,3 +1,7 @@
 # edl-blueprint
 
-This is a template which showcases a sample enterprise data lake creation.
+This project helps to setup an modern data warehousing architecture project on Azure. 
+
+The following diagram summarizes the future state or end state of this project.
+
+![alt text](https://github.com/sarathsasidharan/edl-blueprint/blob/master/MDW_Arch.pdf)
