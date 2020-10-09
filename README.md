@@ -4,4 +4,4 @@ This project helps to setup an modern data warehousing architecture project on A
 
 The following diagram summarizes the future state or end state of this project.
 
-![picture](MDWFSA.png)
+![picture](docs/images/MDWFSA.png)
