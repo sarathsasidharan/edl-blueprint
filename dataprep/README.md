@@ -11,3 +11,4 @@ This is the second logical block in our data lake layer , which picks up data fr
 
 The Basic Flow is that the data is being pumped in from disperate sources both batch and streaming and this layer picks it up and performs operations listed above and gets it delivered into the exposure / consumption layer.
 
+![picture](docs/images/dataprep.PNG)
