@@ -1,0 +1,84 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "edladfdev2020"
+		},
+		"Ds_AdlsGen2_MelbParkingData_properties_typeProperties_fileName": {
+			"type": "string",
+			"defaultValue": "@dataset().infilename"
+		},
+		"Ds_AdlsGen2_MelbParkingData_properties_typeProperties_folderPath": {
+			"type": "string",
+			"defaultValue": "@concat(dataset().container, '/', dataset().infilefolder)"
+		},
+		"Ls_AdlsGen2_01_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://edlstordev2020.dfs.core.windows.net"
+		},
+		"Ls_AzureSQLDW_01_properties_typeProperties_connectionString_secretName": {
+			"type": "string",
+			"defaultValue": "sqldwConnectionString"
+		},
+		"Ls_KeyVault_01_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://edlkvdev2020.vault.azure.net/"
+		},
+		"Ls_Rest_MelParkSensors_01_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://data.melbourne.vic.gov.au/resource/"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "edladfdev2020_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"Ls_KeyVault_01_properties_typeProperties_baseUrl": {
+						"value": "[parameters('Ls_KeyVault_01_properties_typeProperties_baseUrl')]"
+					},
+					"Ls_Rest_MelParkSensors_01_properties_typeProperties_url": {
+						"value": "[parameters('Ls_Rest_MelParkSensors_01_properties_typeProperties_url')]"
+					},
+					"Ls_AdlsGen2_01_properties_typeProperties_url": {
+						"value": "[parameters('Ls_AdlsGen2_01_properties_typeProperties_url')]"
+					},
+					"Ls_AzureSQLDW_01_properties_typeProperties_connectionString_secretName": {
+						"value": "[parameters('Ls_AzureSQLDW_01_properties_typeProperties_connectionString_secretName')]"
+					},
+					"Ds_AdlsGen2_MelbParkingData_properties_typeProperties_fileName": {
+						"value": "[parameters('Ds_AdlsGen2_MelbParkingData_properties_typeProperties_fileName')]"
+					},
+					"Ds_AdlsGen2_MelbParkingData_properties_typeProperties_folderPath": {
+						"value": "[parameters('Ds_AdlsGen2_MelbParkingData_properties_typeProperties_folderPath')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
