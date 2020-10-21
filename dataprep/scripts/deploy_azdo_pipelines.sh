@@ -39,7 +39,7 @@ set -o nounset
 # DEV_DATAFACTORY_NAME
 
 # Retrieve Github Service Connection Id
-github_sc_name="mdwdo-park-github"
+github_sc_name="edl-github"
 github_sc_id=$(az devops service-endpoint list --output json |
     jq -r --arg NAME "$github_sc_name" '.[] | select(.name==$NAME) | .id')
 
@@ -51,7 +51,7 @@ createPipeline () {
         --description 'This pipeline runs python unit tests and linting.' \
         --repository "$GITHUB_REPO_URL" \
         --branch "$AZDO_PIPELINES_BRANCH_NAME" \
-        --yaml-path "/e2e_samples/parking_sensors/devops/azure-pipelines-$pipeline_name.yml" \
+        --yaml-path "/dataprep/devops/azure-pipelines-$pipeline_name.yml" \
         --service-connection "$github_sc_id" \
         --skip-first-run true \
         --output json | jq -r '.id')

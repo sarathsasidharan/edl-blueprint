@@ -5,12 +5,12 @@ trigger:
     - release/*
   paths:
     include:
-    - e2e_samples/parking_sensors/*
+    - edl-blueprint/dataprep/*
 
 pr: none
 
 variables:
-  basePath: 'e2e_samples/parking_sensors'
+  basePath: 'edl-blueprint/dataprep'
   pythonWorkingDir: '$(basePath)/src/ddo_transform'
   pythonPackageMajorVersion:  1
   pythonPackageMinorVersion:  1
