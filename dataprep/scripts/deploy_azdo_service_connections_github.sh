@@ -40,7 +40,7 @@ set -o nounset
 ###############
 # Setup Github service connection
 
-github_sc_name="mdwdo-park-github"
+github_sc_name="edl-github"
 export AZURE_DEVOPS_EXT_GITHUB_PAT=$GITHUB_PAT_TOKEN
 echo "Creating Github service connection: $github_sc_name in Azure DevOps"
 github_sc_id=$(az devops service-endpoint github create \
