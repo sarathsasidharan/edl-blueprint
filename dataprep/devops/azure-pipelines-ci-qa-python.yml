@@ -7,10 +7,10 @@ pr:
     - releases/*
   paths:
     include:
-    - e2e_samples/parking_sensors/src/ddo_transform/*
+    - edl-blueprint/dataprep/src/ddo_transform/*
 
 variables:
-  pythonWorkingDir: 'e2e_samples/parking_sensors/src/ddo_transform'
+  pythonWorkingDir: 'edl-blueprint/dataprep/src/ddo_transform'
 
 pool:
   vmImage: 'Ubuntu-16.04'
